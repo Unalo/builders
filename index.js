@@ -3,6 +3,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import pgPromise from 'pg-promise';
 import builders from './Builders.js';
+import 'dotenv/config'
+
 
 const app = express();
 const pgp = pgPromise();
@@ -13,7 +15,7 @@ if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
 
-const connectionString = process.env.DATABASE_URL || 'postgres://nqwvxbma:JWY1vXDBS12nOmMTpEMbJMQKUmWa4Gln@john.db.elephantsql.com/nqwvxbma';
+const connectionString = process.env.DATABASE_URL || 'postgresql://:@localhost:5432/builder';
 
 const db = pgp(connectionString);
 
