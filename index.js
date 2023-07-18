@@ -13,7 +13,7 @@ if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://:@localhost:5432/builders';
+const connectionString = process.env.DATABASE_URL || 'postgres://nqwvxbma:JWY1vXDBS12nOmMTpEMbJMQKUmWa4Gln@john.db.elephantsql.com/nqwvxbma';
 
 const db = pgp(connectionString);
 
