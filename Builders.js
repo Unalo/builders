@@ -1,7 +1,8 @@
 const builders = (db) => {
 
-    const getAllBuilders = () => {
-        let allData = db.manyOrNone('select * from builders');
+    const getAllBuilders = async () => {
+        let allData = await db.manyOrNone('select * from build');
+        console.log(allData);
         return allData;
     }
     return {

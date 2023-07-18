@@ -21,6 +21,7 @@ const Builders = builders(db);
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -28,17 +29,22 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    let allData = Builders.getAllBuilders();
+app.get('/', async (req, res) => {
+    let allData = await Builders.getAllBuilders();
     res.render('index', {
         allData
     });
 });
 
 app.post('/build', (req, re) => {
+    let {name, address} = req.body;
+    let data = Builders.create(name, address);
     res.redirect('/');
 })
 
+app.get('/add', (req,res) => {
+    res.render('add');
+})
 let PORT = process.env.PORT || 3007;
 app.listen(PORT, () => {
 

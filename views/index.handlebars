@@ -1,35 +1,29 @@
 <body>
     <div class="row">
-        <div class="col-4"> unalo</div>
-        <div class="col-4">
+        <div class="col-2">
+            <a href="/add">
+                <button type="">Add User</button>
+            </a>
+        </div>
+        <div class="col-8">
             <table class="highlight centered responsive-table">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
+                        <th>Address</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    {{#each allData}}
                     <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
+                        <td>{{name}}</td>
+                        <td>{{address}}</td>
                     </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>$3.76</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
-        <div class="col-4"> xola</div>
+        <div class="col-2"> </div>
     </div>
 </body>
